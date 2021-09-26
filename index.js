@@ -8,38 +8,43 @@
  * ,... and so on
  */
 
- //const firstNumber = ("Please enter first number:  ");
- //const secondNumber = ("Please enter second number:");
-// const operation = ("Please enter an operation (+, -, *, /)");
+ //const firstNumber =  ("please enter the first number:  ");
+  //console.log(`${firstNumber}` );
+ 
+  //const secondNumber =  ("please enter the second number:  ");
+  //console.log(`${secondNumber}` );
+ //const operation = prompt("Please enter an operation (+, -, *, /)");
+  
+  //if (firstNumber >=0){
+ //   printOnConsole(firstNumber);
+//} 
+//else {
+////  printOnConsole('')
+//}
 
- let result = 
-    if (isNaN(parseInt(firstNumber)) || isNaN(parseInt(secondNumber))){
-    console.log("not a number")
+
   function buttonClick(text) {
+
+  const firstNumber =  ("");
+ const secondNumber =  ("");
+ const operation = prompt(" (+, -, *, /)");
+ const result = ("=")
   console.log("Clicking", text);
 
-  printOnConsole(text);
+  
 
-  if (operation == '+') {
-    result = parseInt(firstNumber) + parseInt(secondNumber);
-    console.log(firstNumber+ " " + operation+ " "+ secondNumber +" = "+ result);
-}
+  if( text === "=" ||text === "AC" || text === "+" || text === "-" ||text === "*" ||text === "%" || text === "±" ||text === "÷"){
 
+    printOnConsole('')
+  }
+    if (text >=0 && text<=9){
+      printOnConsole(text)
+    }
+      
+    if (firstNumber >= 0 && firstNumber  <= 9){
+      console.log(firstNumber operation secoundNumber)
+    }
 
-
-//  if (buttonClick === 'clear'){
-  //  indexedDB.html = "";
-  //  onlydecimal= false;
-
- // }
-
-
-  //function deleteItems() {
-    //localStorage.clear();
-
- 
- //onclick(buttonClick('AC'))
-  // Write your code here
 }
 
 
