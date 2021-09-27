@@ -8,46 +8,77 @@
  * ,... and so on
  */
 
- //const firstNumber =  ("please enter the first number:  ");
-  //console.log(`${firstNumber}` );
- 
-  //const secondNumber =  ("please enter the second number:  ");
-  //console.log(`${secondNumber}` );
- //const operation = prompt("Please enter an operation (+, -, *, /)");
-  
-  //if (firstNumber >=0){
- //   printOnConsole(firstNumber);
-//} 
-//else {
-////  printOnConsole('')
-//}
+var firstNumber = "";
+var secondNumber = "";
+var operation = "";
+var nextValue = 0;
 
-
-  function buttonClick(text) {
-
-  const firstNumber =  ("");
- const secondNumber =  ("");
- const operation = prompt(" (+, -, *, /)");
- const result = ("=")
+function buttonClick(text) {
   console.log("Clicking", text);
 
-  
-
-  if( text === "=" ||text === "AC" || text === "+" || text === "-" ||text === "*" ||text === "%" || text === "±" ||text === "÷"){
-
-    printOnConsole('')
+  function isNumber(text) {
+    return parseInt(text) >= 0 && parseInt(text) <= 9;
   }
-    if (text >=0 && text<=9){
-      printOnConsole(text)
-    }
-      
-    if (firstNumber >= 0 && firstNumber  <= 9){
-      console.log(firstNumber operation secoundNumber)
-    }
 
+  if (text == "AC") {
+    firstNumber = "";
+    secondNumber = "";
+    operation = "";
+    nextValue = 0;
+    printOnConsole("");
+  }
+
+  if (
+    text === "+" ||
+    text === "-" ||
+    text === "x" ||
+    text === "%" ||
+    text === "±" ||
+    text === "÷"
+  ) {
+    console.log(text, "operation");
+    if (firstNumber != "") {
+      printOnConsole(firstNumber + " " + text);
+      operation = text;
+      nextValue = 1;
+    } else {
+      printOnConsole("");
+    }
+  }
+
+  if (text >= 0 && text <= 9) {
+    if (nextValue == 0) {
+      printOnConsole((firstNumber += text));
+    } else if (nextValue == 1) {
+      printOnConsole(
+        firstNumber + " " + operation + " " + (secondNumber += text)
+      );
+    }
+  }
+
+  if (text === "=") {
+    if (operation == "+") {
+      result = parseInt(firstNumber) + parseInt(secondNumber);
+      printOnConsole(result);
+      firstNumber = result;
+    } else if (operation == "-") {
+      result = parseInt(firstNumber) - parseInt(secondNumber);
+      printOnConsole(result);
+      firstNumber = result;
+    } else if (operation == "*" || operation == "x") {
+      result = parseInt(firstNumber) * parseInt(secondNumber);
+      printOnConsole(result);
+      firstNumber = result;
+    } else if (operation == "/" || operation == "÷") {
+      result = parseInt(firstNumber) / parseInt(secondNumber);
+      printOnConsole(result);
+      firstNumber = result;
+    }
+    secondNumber = "";
+    operation = "";
+    nextValue = 1;
+  }
 }
-
-
 
 /** Supporting functions
  * 1. `printOnConsole(text)`, takes any text, and renders the console part of the web page
@@ -55,5 +86,11 @@
  */
 
 // Remove Me after testing
-printOnConsole("123");
-updateHistory(["This is a sample historry", "1 + 5 = 6", "5 x 10 = 50"]);
+
+//var history = [result];
+
+//function updateHistory(history) {
+//history.push("result");
+//return history;
+
+//console.log(updateHistory(["result"]));
