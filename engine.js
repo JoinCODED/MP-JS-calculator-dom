@@ -27,5 +27,5 @@ function updateHistory(historyArray) {
   const historyList = document.getElementById("history-list");
   historyList.innerHTML = historyArray
     .map((historyInstance) => listComponent(historyInstance))
-    .join("");
+    .join("");  
 }
