@@ -16,10 +16,6 @@ var nextValue = 0;
 function buttonClick(text) {
   console.log("Clicking", text);
 
-  function isNumber(text) {
-    return parseInt(text) >= 0 && parseInt(text) <= 9;
-  }
-
   if (text == "AC") {
     firstNumber = "";
     secondNumber = "";
@@ -36,7 +32,7 @@ function buttonClick(text) {
     text === "±" ||
     text === "÷"
   ) {
-    console.log(text, "operation");
+    console.log(text, "operaion");
     if (firstNumber != "") {
       printOnConsole(firstNumber + " " + text);
       operation = text;
@@ -45,7 +41,6 @@ function buttonClick(text) {
       printOnConsole("");
     }
   }
-
   if (text >= 0 && text <= 9) {
     if (nextValue == 0) {
       printOnConsole((firstNumber += text));
@@ -55,30 +50,30 @@ function buttonClick(text) {
       );
     }
   }
-
   if (text === "=") {
     if (operation == "+") {
       result = parseInt(firstNumber) + parseInt(secondNumber);
       printOnConsole(result);
-      firstNumber = result;
     } else if (operation == "-") {
       result = parseInt(firstNumber) - parseInt(secondNumber);
       printOnConsole(result);
-      firstNumber = result;
     } else if (operation == "*" || operation == "x") {
       result = parseInt(firstNumber) * parseInt(secondNumber);
       printOnConsole(result);
-      firstNumber = result;
     } else if (operation == "/" || operation == "÷") {
       result = parseInt(firstNumber) / parseInt(secondNumber);
       printOnConsole(result);
-      firstNumber = result;
     }
+    history.push(`${firstNumber} ${operation} ${secondNumber} = ${result}`);
+    updateHistory(history);
+    firstNumber = result;
     secondNumber = "";
     operation = "";
     nextValue = 1;
   }
 }
+// if (firstNumber >= 0 && firstNumber  <= 9){
+// console.log(firstNumber operation secoundNumber)
 
 /** Supporting functions
  * 1. `printOnConsole(text)`, takes any text, and renders the console part of the web page
@@ -87,10 +82,7 @@ function buttonClick(text) {
 
 // Remove Me after testing
 
-//var history = [result];
-
-//function updateHistory(history) {
-//history.push("result");
-//return history;
-
-//console.log(updateHistory(["result"]));
+let history = [];
+history = [];
+printOnConsole("123");
+updateHistory([]);
