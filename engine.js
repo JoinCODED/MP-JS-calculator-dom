@@ -17,10 +17,6 @@ function printOnConsole(text) {
 
 // DON'T TOUCH THIS CODE
 function updateHistory(historyArray) {
-  console.log(
-    "🚀 ~ file: engine.js ~ line 20 ~ updateHistory ~ historyArray",
-    historyArray
-  );
   const listComponent = (text) =>
     `
   <li>
@@ -30,10 +26,6 @@ function updateHistory(historyArray) {
   `;
 
   const historyList = document.getElementById("history-list");
-  console.log(
-    "🚀 ~ file: engine.js ~ line 29 ~ updateHistory ~ historyList",
-    historyList
-  );
   historyList.innerHTML = historyArray
     .map((historyInstance) => listComponent(historyInstance))
     .join(" ");

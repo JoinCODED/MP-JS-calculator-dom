@@ -8,26 +8,24 @@
  * ,... and so on
  */
 let num1 = null;
-let num2 = null;
-let operation = null;
-const history = [];
-let res;
 let number1Text = "";
+let num2 = null;
 let number2Text = "";
+let operation = null;
+let res;
+const history = [];
 
 function buttonClick(text) {
-  console.log("Clicking", text);
-  // Write your code here
-  if (text >= 0 && text <= 9) {
+  if (!isNaN(text)) {
     printOnConsole(text);
-    if (!num1) {
+    if (num1 == null) {
       number1Text += text;
       num1 = parseInt(number1Text);
-    } else if (operation === null) {
+    } else if (operation == null && num1 !== null) {
       number1Text += text;
       num1 = parseInt(number1Text);
       printOnConsole(num1);
-    } else if (num1 && !num2) {
+    } else if (num2 == null) {
       number2Text += text;
       num2 = parseInt(number2Text);
     } else if (num1 && num2) {
@@ -42,6 +40,9 @@ function buttonClick(text) {
     printOnConsole(res);
     history.push([`${num1} ${operation} ${num2} = ${res}`]);
     updateHistory(history);
+    num1 = res;
+    num2 = null;
+    number2Text = "";
   } else if (text === "AC") {
     num2 = null;
     num1 = null;
